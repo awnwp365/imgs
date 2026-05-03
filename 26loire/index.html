@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loire Valley Pool Party 🏰</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #F5E6C0;
+    --cream: #FAF5EC;
+    --royal-blue: #1A2E5A;
+    --deep-blue: #0D1B38;
+    --burgundy: #7A1832;
+    --sage: #6B8F71;
+    --pool-blue: #4FA3C8;
+    --pool-light: #A8D8EA;
+    --white: #FFFFFF;
+    --text-dark: #1A1A2E;
+    --text-mid: #3D3D5C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    background: linear-gradient(160deg, var(--deep-blue) 0%, var(--royal-blue) 40%, #2A4A8A 70%, #1E3A6E 100%);
+    position: relative;
+    padding: 80px 40px 100px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(79,163,200,0.2) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .fleur-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+
+  .fleur {
+    color: var(--gold);
+    font-size: 22px;
+    animation: sway 4s ease-in-out infinite;
+  }
+  .fleur:nth-child(2) { animation-delay: 0.5s; }
+  .fleur:nth-child(3) { animation-delay: 1s; }
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 82px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+  }
+
+  .hero-title em {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--pool-light);
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .meta-pill {
+    background: rgba(201,168,76,0.2);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-pale);
+    padding: 8px 24px;
+    border-radius: 100px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .divider-ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 28px;
+    margin: 0;
+    position: relative;
+    top: -1px;
+  }
+
+  /* ═══ WAVE ═══ */
+  .wave-top {
+    background: var(--deep-blue);
+    height: 60px;
+    position: relative;
+  }
+  .wave-top::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  /* ═══ LAYOUT ═══ */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ═══ DAY HEADERS ═══ */
+  .day-block {
+    margin: 60px 0 40px;
+  }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+
+  .day-number {
+    background: linear-gradient(135deg, var(--royal-blue), var(--deep-blue));
+    color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid var(--gold);
+    flex-shrink: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  .day-title-wrap h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--royal-blue);
+    line-height: 1;
+  }
+
+  .day-title-wrap .day-date {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+
+  .day-rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+  }
+
+  /* ═══ SESSION LABELS ═══ */
+  .session-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .session-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(122,24,50,0.2);
+  }
+
+  /* ═══ CARDS ═══ */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  /* Day 3: all three activities in one row on wide screens */
+  .day3-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .day3-grid .session-label-inline {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin: 0 0 12px;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .day3-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .card {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(26,46,90,0.08), 0 1px 4px rgba(26,46,90,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(26,46,90,0.14), 0 2px 8px rgba(26,46,90,0.06);
+  }
+
+  .card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-img-placeholder {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, var(--royal-blue), var(--pool-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+  }
+
+  .card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--royal-blue);
+    color: var(--gold-light);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+
+  .card-distance {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(255,255,255,0.95);
+    color: var(--royal-blue);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    border: 1px solid rgba(201,168,76,0.5);
+  }
+
+  .card-body {
+    padding: 20px 22px 22px;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--royal-blue);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .card-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--royal-blue);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    transition: color 0.2s ease;
+  }
+
+  .card-link:hover { color: var(--burgundy); }
+  .card-link svg { width: 14px; height: 14px; }
+
+  /* ═══ ACTIVITY LIST CARDS ═══ */
+  .activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .activity-item {
+    background: white;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: 0 2px 10px rgba(26,46,90,0.05);
+  }
+
+  .activity-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .activity-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--royal-blue);
+    margin-bottom: 3px;
+  }
+
+  .activity-item p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.45;
+  }
+
+  /* ═══ MEAL PLAN ═══ */
+  .meal-section {
+    background: linear-gradient(135deg, var(--royal-blue) 0%, var(--deep-blue) 100%);
+    padding: 60px 40px;
+    margin: 60px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .meal-section::before {
+    content: '🍽';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    font-size: 180px;
+    opacity: 0.04;
+  }
+
+  .meal-section .section-heading {
+    color: var(--gold-light);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .meal-section .section-sub {
+    color: var(--pool-light);
+    text-align: center;
+    font-style: italic;
+    font-size: 18px;
+    margin-bottom: 40px;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .meal-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .meal-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 4px;
+    padding: 24px;
+  }
+
+  .meal-day {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(201,168,76,0.25);
+  }
+
+  .meal-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+
+  .meal-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--pool-light);
+    min-width: 70px;
+    margin-top: 2px;
+  }
+
+  .meal-desc {
+    color: var(--white);
+    font-size: 15px;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.4;
+  }
+
+  /* ═══ SECTION HEADINGS ═══ */
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    color: var(--royal-blue);
+    margin-bottom: 6px;
+  }
+
+  /* ═══ MONDAY OPTIONS ═══ */
+  .monday-intro {
+    background: linear-gradient(to right, var(--gold-pale), transparent);
+    border-left: 4px solid var(--gold);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    border-radius: 0 4px 4px 0;
+    font-size: 16px;
+    color: var(--text-mid);
+    font-style: italic;
+  }
+
+  /* ═══ FOOTER ═══ */
+  .footer {
+    background: var(--deep-blue);
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255,255,255,0.4);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .footer span { color: var(--gold); }
+
+  /* ═══ FULL-WIDTH ACCOMMODATION CARD ═══ */
+  .accom-card {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 6px 30px rgba(26,46,90,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    margin-bottom: 40px;
+    transition: transform 0.3s ease;
+  }
+
+  .accom-card:hover { transform: translateY(-3px); }
+
+  .accom-img {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .accom-body {
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .accom-type {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 12px;
+  }
+
+  .accom-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--royal-blue);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .accom-features {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .feature-tag {
+    background: var(--gold-pale);
+    color: var(--text-dark);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+
+  .accom-desc {
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 700px) {
+    .accom-card { grid-template-columns: 1fr; }
+    .accom-img { min-height: 240px; }
+    .accom-body { padding: 24px; }
+    .hero { padding: 60px 20px 80px; }
+    .day-header { flex-wrap: wrap; }
+    .container { padding: 0 16px; }
+    .meal-section { padding: 40px 20px; }
+  }
+
+  /* Animated entry */
+  .card, .accom-card, .activity-item {
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .pool-wave {
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, var(--pool-blue), var(--pool-light), var(--pool-blue));
+    background-size: 200% 100%;
+    animation: waveShimmer 3s linear infinite;
+  }
+
+  @keyframes waveShimmer {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="fleur-row">
+    <span class="fleur">⚜</span>
+    <span class="fleur">🌸</span>
+    <span class="fleur">⚜</span>
+    <span class="fleur">🌸</span>
+    <span class="fleur">⚜</span>
+  </div>
+  <p class="hero-eyebrow">Weekend Getaway · May 2025</p>
+  <h1 class="hero-title">Loire Valley<br><em>Pool Party</em></h1>
+  <p class="hero-sub">Châteaux, sunshine & splashing in the Amboise countryside</p>
+  <div class="hero-meta">
+    <span class="meta-pill">📍 Amboise, Val de Loire</span>
+    <span class="meta-pill">📅 23 – 25 May 2025</span>
+    <span class="meta-pill">🏊 Private Pool</span>
+    <span class="meta-pill">🏰 Château Country</span>
+  </div>
+</section>
+<div class="pool-wave"></div>
+<div class="wave-top"></div>
+
+<!-- BODY -->
+<div class="container">
+
+  <!-- ═══ DAY 1 ═══ -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">Day<br>1</div>
+      <div class="day-title-wrap">
+        <h2>Paris → Amboise</h2>
+        <p class="day-date">Saturday, 23 May 2025</p>
+      </div>
+      <div class="day-rule"></div>
+    </div>
+
+    <!-- Morning -->
+    <p class="session-label">🌅 Morning</p>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span class="activity-icon">🚗</span>
+        <div>
+          <h4>Drive from Paris to Amboise</h4>
+          <p>Hit the road early and enjoy the A10 autoroute south through the Loire. Expect around 2h30 in light morning traffic. Stop at an aire de repos for café et croissants en route.</p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-icon">🛒</span>
+        <div>
+          <h4>Carrefour Click & Collect</h4>
+          <p>Pick up your pre-ordered groceries — BBQ essentials, drinks, sunscreen — at the nearby Carrefour on arrival. Everything in one efficient stop so the fun can begin.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accommodation -->
+    <p class="session-label">🏡 Where You're Staying</p>
+    <div class="accom-card">
+      <img class="accom-img" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/632251920.jpg?k=09edafb3674abab9ac3f36d33812ea8339e7ed85703cbef6a92101e0a6ca5c45&o=" alt="Les Prairies du Val d'Amboise">
+      <!-- Fallback using CSS since we can't embed the actual uploaded image as base64 in a static file -->
+      
+      <div class="accom-body">
+        <p class="accom-type">🏡 Private Gîte · Noizay, Val de Loire</p>
+        <h3 class="accom-title">Les Prairies du Val d'Amboise — Grand Gîte 15 pers. avec Piscine</h3>
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:11px; letter-spacing:1px; color:var(--text-mid); margin-bottom:14px;">
+          📍 <a href="https://www.google.com/maps/search/1+Rue+du+8+Mai+1945,+37210+Noizay,+France" target="_blank" style="color:var(--royal-blue); text-decoration:underline; text-underline-offset:2px;">1 Rue du 8 Mai 1945, 37210 Noizay, France</a>
+        </p>
+        <div class="accom-features">
+          <span class="feature-tag">🏊 Private Pool</span>
+          <span class="feature-tag">👨‍👩‍👧 15 Guests</span>
+          <span class="feature-tag">🌿 Garden</span>
+          <span class="feature-tag">🚲 Bikes</span>
+          <span class="feature-tag">🍖 BBQ</span>
+        </div>
+        <p class="accom-desc">A spacious Loire Valley gîte in the rolling countryside near Amboise — your royal base camp for the weekend. Settle in, uncork a Touraine rosé, and let the kids claim the pool while you arrange the sun loungers. Accommodation for up to 15 guests with a private outdoor pool, garden, and everything you need for a proper French summer escape.</p>
+        <a class="card-link" href="https://www.booking.com/Share-MxCVOf" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          View on Booking.com
+        </a>
+      </div>
+    </div>
+
+    <!-- Afternoon -->
+    <p class="session-label">☀️ Afternoon & Evening</p>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span class="activity-icon">🏊</span>
+        <div>
+          <h4>Settle in & Splash in the Pool</h4>
+          <p>Unpack, change into your swimwear, and dive in. Float on inflatables, set up a cool drink station poolside and let the afternoon melt away under the Loire Valley sun.</p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-icon">🍔</span>
+        <div>
+          <h4>BBQ Burgers or Pizza Night</h4>
+          <p>Fire up the barbecue as the sun dips behind the châteaux hills. Burgers with the works, corn on the cob, and a proper Loire Valley salad — or if the mood calls for it, a quick pizza delivery for maximum ease.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 2 ═══ -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">Day<br>2</div>
+      <div class="day-title-wrap">
+        <h2>Châteaux Day</h2>
+        <p class="day-date">Sunday, 24 May 2025</p>
+      </div>
+      <div class="day-rule"></div>
+    </div>
+
+    <p class="session-label">🌄 Breakfast</p>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span class="activity-icon">🥐</span>
+        <div>
+          <h4>Continental Breakfast at the Gîte</h4>
+          <p>Bread, croissants, jam, cheese, fresh fruit and coffee in the garden. A leisurely French-style start before heading out to explore.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="session-label">🏰 Choose Your Adventure — Pick One (or Two!)</p>
+    <div class="cards-grid">
+
+      <!-- Option 1: Mini Chateaux -->
+      <div class="card">
+        <img class="card-img" src="https://www.parcminichateaux.com/fileadmin/_processed_/4/1/csm_parc-mini-chateaux-chateau-amboise-1_3c43606ed4.jpg" alt="Parc des Mini-Chateaux">
+        <span class="card-badge">⭐ Top Pick for Families</span>
+        <span class="card-distance">📍 ~10 km · 15 min</span>
+        <div class="card-body">
+          <h3 class="card-title">See All the Châteaux in One Go</h3>
+          <p class="card-desc">Why visit one château when you can see 41? The Parc des Mini-Châteaux presents over 40 iconic Loire Valley castles at 1:25 scale — so detailed you'll feel like a giant strolling through history. Kids can ride mechanical horses in knight outfits, drive mini-tractors, and hunt for treasure. A brilliant warm-up to see which châteaux to put on the must-visit list.</p>
+          <a class="card-link" href="https://www.parcminichateaux.com/informations-pratiques/tarifs-et-reservations/toutes-les-offres" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Book Tickets
+          </a>
+        </div>
+      </div>
+
+      <!-- Option 2: Chambord -->
+      <div class="card">
+        <img class="card-img" src="https://cdn1.chambord.org/fr/wp-content/uploads/sites/2/2024/03/bandeau-page-vacances-printemps-300x146.jpg" alt="Chateau de Chambord">
+        <span class="card-badge">🏆 The Grande Dame</span>
+        <span class="card-distance">📍 ~66 km · 1 hr 5 min</span>
+        <div class="card-body">
+          <h3 class="card-title">Chambord: Where Kings Played</h3>
+          <p class="card-desc">François I's legendary hunting palace is Loire Valley royalty — the largest château of them all, with 440 rooms, a double-helix staircase attributed to Leonardo da Vinci, and an estate the size of Paris. Wander the rooftop terraces, explore the vast grounds and woodland, and feel the grandeur of Renaissance France at its most extravagant. Allow a full half-day — it's worth every minute.</p>
+          <a class="card-link" href="https://www.chambord.org" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Visit Chambord
+          </a>
+        </div>
+      </div>
+
+      <!-- Option 3: Clos Lucé -->
+      <div class="card">
+        <img class="card-img" src="https://www.vinci-closluce.com/file/image/aGFuZGxlcj1maWxsJndpZHRoPTgwMA==/b4i1_1437395215.jpg" alt="Chateau du Clos Luce">
+        <span class="card-badge">🧠 Kids Love This</span>
+        <span class="card-distance">📍 ~10 km · 15 min</span>
+        <div class="card-body">
+          <h3 class="card-title">Château du Clos Lucé — Leonardo's Last Home</h3>
+          <p class="card-desc">At the invitation of King François I, Leonardo da Vinci spent the final three years of his life at this elegant manor just a stroll from the Amboise royal château. Kids go wild for the interactive section: full-size working models of his inventions are scattered through the magical garden — they can step inside his tank, cross his drawbridge, and operate his machines. The basement is packed with 3D models of his genius designs. History has never been this hands-on.</p>
+          <a class="card-link" href="https://www.vinci-closluce.com" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Plan Your Visit
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="session-label">🌆 Evening</p>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span class="activity-icon">🥗</span>
+        <div>
+          <h4>Steak & Salad Dinner</h4>
+          <p>Back at the gîte for a proper sit-down dinner. Côte de boeuf from the Carrefour order, a crisp green salad, crusty baguette and a good Chinon rouge. Pure Loire Valley satisfaction.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 3 ═══ -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">Day<br>3</div>
+      <div class="day-title-wrap">
+        <h2>Adventure Monday</h2>
+        <p class="day-date">Monday, 25 May 2025</p>
+      </div>
+      <div class="day-rule"></div>
+    </div>
+
+    <div class="day3-grid">
+
+      <!-- Morning -->
+      <div>
+        <span class="session-label-inline">🌅 Morning</span>
+        <div class="card">
+          <img class="card-img" src="https://i.imgur.com/LHPiPwX.jpg" alt="Lulu Parc">
+          <span class="card-badge">🎠 Pure Fun</span>
+          <span class="card-distance">📍 ~17 km · 20 min</span>
+          <div class="card-body">
+            <h3 class="card-title">Lulu Parc — Outdoor Adventure Park</h3>
+            <p class="card-desc">An outdoor leisure park in Rochecorbon, near Tours, designed entirely for family fun. Bouncy castles, water games, pedal go-karts, a toddler play area, crazy golf, pony rides and a traditional guinguette serving food and cold drinks. It's open-air bliss for little ones who want one last big burst of energy before the drive home. A relaxed, happy, no-stress way to round off the weekend.</p>
+            <a class="card-link" href="https://www.luluparc.com" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              Lulu Parc Info
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Afternoon -->
+      <div>
+        <span class="session-label-inline">☀️ Afternoon</span>
+        <div class="card">
+          <img class="card-img" src="https://medias.elloha.com/crop-700x500/1d803276-52f0-41df-a0ab-31dafa1c1706/espace-d%c3%a9gustation.jpg" alt="Troglo Degusto">
+          <span class="card-badge">🪨 Unique Experience</span>
+          <span class="card-distance">📍 ~26 km · 30 min</span>
+          <div class="card-body">
+            <h3 class="card-title">TROGLO DEGUSTO</h3>
+            <p class="card-desc">Tucked between Château de Chenonceau and Zoo de Beauval, Troglo Degusto opens the doors to a vast troglodyte world with 1,000 years of history. Explore fascinating underground galleries where geology, tradition and traces of the past intertwine — then round off the visit with a tasting of AOC wines from the Domaine des Tabourelles. During school holidays, special adventures and animations are laid on in the galleries for all ages. A truly unique oenotourism experience blending heritage, culture and gastronomy.</p>
+            <a class="card-link" href="https://troglodegusto.fr/" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              Discover Troglo Degusto
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Evening -->
+      <div>
+        <span class="session-label-inline">🌆 Evening</span>
+        <div class="card">
+          <img class="card-img" src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_487/k%2Farchive%2Ff54802c9417e58896098e6d036c6c9a652bfbeb4" alt="Pool Party at the Gîte">
+          <span class="card-badge">🏊 Pool Party</span>
+          <div class="card-body">
+            <h3 class="card-title">Pool Party and Drinks at the Gîte</h3>
+            <p class="card-desc">The perfect finale to the weekend — dive back into the pool as the evening sun turns everything golden. Ice-cold cocktails flow freely: think fruity spritzes, frozen daiquiris, and a legendary sangria that may or may not need its own life jacket. Splash wars are compulsory, floaties are encouraged, and the only rule is that nobody leaves dry.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ MEAL PLAN ═══ -->
+<section class="meal-section">
+  <div class="container">
+    <h2 class="section-heading" style="font-family:'Playfair Display',serif; font-size:clamp(24px,4vw,36px); margin-bottom:6px;">Menu & Meal Plan</h2>
+    <p class="section-sub">Simple, delicious, Loire-inspired</p>
+    <div class="meal-grid">
+
+      <div class="meal-card">
+        <p class="meal-day">⚜ Saturday 23 May</p>
+        <div class="meal-item">
+          <span class="meal-label">Lunch</span>
+          <span class="meal-desc">🥖 Picnic en route — baguettes, charcuterie, cornichons & fruit picked up before departure</span>
+        </div>
+        <div class="meal-item">
+          <span class="meal-label">Dinner</span>
+          <span class="meal-desc">🍔 BBQ Burgers with all the trimmings — or pizza delivery if the sun's already gone down</span>
+        </div>
+      </div>
+
+      <div class="meal-card">
+        <p class="meal-day">⚜ Sunday 24 May</p>
+        <div class="meal-item">
+          <span class="meal-label">Breakfast</span>
+          <span class="meal-desc">🥐 Continental at the gîte — croissants, baguette, jam, cheese, café & fresh fruit</span>
+        </div>
+        <div class="meal-item">
+          <span class="meal-label">Lunch</span>
+          <span class="meal-desc">🧺 Picnic near the château — sandwiches, crudités, cold rosé for grown-ups</span>
+        </div>
+        <div class="meal-item">
+          <span class="meal-label">Dinner</span>
+          <span class="meal-desc">🥩 Steak & salad — côte de boeuf, crisp green salad, baguette & a bottle of Chinon rouge</span>
+        </div>
+      </div>
+
+      <div class="meal-card">
+        <p class="meal-day">⚜ Monday 25 May</p>
+        <div class="meal-item">
+          <span class="meal-label">Breakfast</span>
+          <span class="meal-desc">🥐 Continental at the gîte — croissants, baguette, jam, cheese, café & fresh fruit</span>
+        </div>
+        <div class="meal-item">
+          <span class="meal-label">Lunch</span>
+          <span class="meal-desc">🧺 Outdoor picnic — baguettes, selection of cheeses & chips somewhere scenic in the Loire Valley sunshine</span>
+        </div>
+        <div class="meal-item">
+          <span class="meal-label">Dinner</span>
+          <span class="meal-desc">🍷 Adults: Charcuterie, crudités & pain — a generous spread of cured meats, seasonal veg & crusty bread with a glass of Touraine rouge · 🍗 Kids: Chicken nuggets & veg</span>
+        </div>
+      </div>
+
+      <div class="meal-card">
+        <p class="meal-day">⚜ Tuesday 26 May — Farewell Morning</p>
+        <div class="meal-item">
+          <span class="meal-label">Breakfast</span>
+          <span class="meal-desc">🥐 One last continental spread before the drive home — use up the remaining croissants, jam, cheese & fruit. Strong coffee, good memories, and one final look at the pool.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>🏰 <span>Loire Valley Pool Party</span> · Weekend of 23–25 May 2025 · Amboise, Val de Loire ⚜</p>
+</footer>
+
+</body>
+</html>
