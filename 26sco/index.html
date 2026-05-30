@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scotland Highland Adventure · Summer 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --highland-green: #1D4A2A;
+    --deep-forest: #0D2A14;
+    --heather: #7B4B7A;
+    --tartan-red: #8B1C1C;
+    --whisky: #C8850C;
+    --whisky-light: #E8A83A;
+    --whisky-pale: #F5E0C0;
+    --parchment: #F7F2E9;
+    --stone: #8A8A7E;
+    --loch: #2A4A6B;
+    --text-dark: #1A1A0E;
+    --text-mid: #3D3D2C;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--parchment);
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  .tartan-stripe {
+    height: 8px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--tartan-red) 0px, var(--tartan-red) 18px,
+      var(--highland-green) 18px, var(--highland-green) 26px,
+      var(--whisky) 26px, var(--whisky) 30px,
+      var(--highland-green) 30px, var(--highland-green) 38px,
+      var(--tartan-red) 38px, var(--tartan-red) 56px
+    );
+  }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    background: linear-gradient(160deg, var(--deep-forest) 0%, var(--highland-green) 45%, #2A5A35 70%, #1E4A28 100%);
+    position: relative;
+    padding: 80px 40px 100px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(200,133,12,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(123,75,122,0.2) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c8850c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .thistle-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 16px;
+    opacity: 0.8;
+    position: relative;
+    z-index: 1;
+  }
+
+  .thistle {
+    color: var(--whisky);
+    font-size: 24px;
+    animation: sway 5s ease-in-out infinite;
+  }
+  .thistle:nth-child(2) { animation-delay: 0.7s; }
+  .thistle:nth-child(3) { animation-delay: 1.4s; color: var(--whisky-light); font-size: 28px; }
+  .thistle:nth-child(4) { animation-delay: 0.3s; }
+  .thistle:nth-child(5) { animation-delay: 1.1s; }
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(-4deg); }
+    50% { transform: rotate(4deg); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--whisky-light);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 82px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title em {
+    color: var(--whisky-light);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 36px;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .meta-pill {
+    background: rgba(200,133,12,0.2);
+    border: 1px solid rgba(200,133,12,0.4);
+    color: var(--whisky-pale);
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ═══ WAVE ═══ */
+  .wave-top {
+    background: var(--deep-forest);
+    height: 60px;
+    position: relative;
+  }
+  .wave-top::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--parchment);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  /* ═══ LAYOUT ═══ */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ═══ DAY HEADERS ═══ */
+  .day-block { margin: 60px 0 40px; }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+
+  .day-number {
+    background: linear-gradient(135deg, var(--highland-green), var(--deep-forest));
+    color: var(--whisky-light);
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid var(--whisky);
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .day-title-wrap h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--highland-green);
+    line-height: 1;
+  }
+
+  .day-title-wrap .day-date {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--whisky);
+    margin-top: 4px;
+  }
+
+  .day-rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--whisky), transparent);
+  }
+
+  /* ═══ SESSION LABELS ═══ */
+  .session-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--tartan-red);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .session-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(139,28,28,0.2);
+  }
+
+  .session-label-inline {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--tartan-red);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  /* ═══ CARDS ═══ */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .cards-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .cards-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: 900px) {
+    .cards-grid-2, .cards-grid-3 { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(29,74,42,0.08), 0 1px 4px rgba(29,74,42,0.05);
+    border: 1px solid rgba(200,133,12,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(29,74,42,0.14), 0 2px 8px rgba(29,74,42,0.06);
+  }
+
+  .card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-img-placeholder {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+  }
+
+  .ph-green   { background: linear-gradient(135deg, var(--highland-green), #3A7A4A); }
+  .ph-heather { background: linear-gradient(135deg, var(--heather), #9B6B9A); }
+  .ph-tartan  { background: linear-gradient(135deg, var(--tartan-red), #C43A3A); }
+  .ph-loch    { background: linear-gradient(135deg, var(--loch), #3A6A9B); }
+  .ph-whisky  { background: linear-gradient(135deg, #7A4A0C, var(--whisky)); }
+  .ph-stone   { background: linear-gradient(135deg, #5A5A4E, #8A8A7E); }
+
+  .card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--highland-green);
+    color: var(--whisky-light);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+
+  .card-distance {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(255,255,255,0.95);
+    color: var(--highland-green);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    border: 1px solid rgba(200,133,12,0.5);
+  }
+
+  .card-body { padding: 20px 22px 22px; }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--highland-green);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .card-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--highland-green);
+    text-decoration: none;
+    border-bottom: 1px solid var(--whisky);
+    padding-bottom: 2px;
+    transition: color 0.2s ease;
+  }
+  .card-link:hover { color: var(--tartan-red); }
+  .card-link svg { width: 14px; height: 14px; }
+
+  /* ═══ ACTIVITY LIST ═══ */
+  .activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .activity-item {
+    background: white;
+    border-left: 3px solid var(--whisky);
+    border-radius: 0 4px 4px 0;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: 0 2px 10px rgba(29,74,42,0.05);
+  }
+
+  .activity-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+
+  .activity-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--highland-green);
+    margin-bottom: 3px;
+  }
+
+  .activity-item p { font-size: 15px; color: var(--text-mid); line-height: 1.45; }
+
+  /* ═══ STAY CARD ═══ */
+  .stay-card {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 6px 30px rgba(29,74,42,0.1);
+    border: 1px solid rgba(200,133,12,0.25);
+    margin-bottom: 40px;
+    transition: transform 0.3s ease;
+  }
+
+  .stay-card:hover { transform: translateY(-3px); }
+
+  .stay-img {
+    width: 100%; height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .stay-img-placeholder {
+    width: 100%; min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+  }
+
+  .stay-body {
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .stay-type {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 12px;
+  }
+
+  .stay-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--highland-green);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .stay-features {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+
+  .feature-tag {
+    background: var(--whisky-pale);
+    color: var(--text-dark);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+
+  .stay-desc {
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+
+  /* ═══ CALLOUT ═══ */
+  .callout {
+    background: linear-gradient(to right, var(--whisky-pale), transparent);
+    border-left: 4px solid var(--whisky);
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    border-radius: 0 4px 4px 0;
+    font-size: 16px;
+    color: var(--text-mid);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ═══ FOOTER ═══ */
+  .footer {
+    background: var(--deep-forest);
+    text-align: center;
+    padding: 40px 20px 30px;
+    color: rgba(255,255,255,0.4);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .footer span { color: var(--whisky-light); }
+  .footer .tartan-stripe { margin-bottom: 24px; }
+
+  @media (max-width: 700px) {
+    .stay-card { grid-template-columns: 1fr; }
+    .stay-img-placeholder { min-height: 220px; }
+    .stay-body { padding: 24px; }
+    .hero { padding: 60px 20px 80px; }
+    .day-header { flex-wrap: wrap; }
+    .container { padding: 0 16px; }
+  }
+
+  .card, .stay-card, .activity-item {
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="tartan-stripe"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="thistle-row">
+    <span class="thistle">✦</span>
+    <span class="thistle">🌿</span>
+    <span class="thistle">🦌</span>
+    <span class="thistle">🌿</span>
+    <span class="thistle">✦</span>
+  </div>
+  <p class="hero-eyebrow">Highland Adventure · Summer 2026</p>
+  <h1 class="hero-title">Scotland<br><em>The Highland Way</em></h1>
+  <p class="hero-sub">Edinburgh, the Cairngorms & the rolling glens of Royal Deeside</p>
+  <div class="hero-meta">
+    <span class="meta-pill">📍 Edinburgh → Braemar → Crathes</span>
+    <span class="meta-pill">📅 24 July – 2 August 2026</span>
+    <span class="meta-pill">🏰 Mar Lodge Estate</span>
+    <span class="meta-pill">🥃 Whisky Country</span>
+    <span class="meta-pill">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Clan Stien Territory</span>
+  </div>
+</section>
+<div class="wave-top"></div>
+
+<div class="container">
+
+  <!-- ═══ EDINBURGH · FRI–SUN 24–26 JULY ═══ -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number" style="font-size:11px; line-height:1.3;">EDI<br>24–26</div>
+      <div class="day-title-wrap">
+        <h2>Edinburgh City Break</h2>
+        <p class="day-date">Friday to Sunday · 24–26 July 2026</p>
+      </div>
+      <div class="day-rule"></div>
+    </div>
+
+    <div class="callout">
+      Jen flies in to Edinburgh with the Kays for a city break before the Highland adventure begins. <strong>Book ahead</strong> — especially Edinburgh Castle, which fills up fast in July.
+    </div>
+
+    <p class="session-label">🏰 Top Things to Do</p>
+    <div class="cards-grid">
+
+      <div class="card">
+        <img class="card-img" src="edi-castle.jpeg" alt="Edinburgh Castle">
+        <span class="card-badge">⭐ Book Ahead</span>
+        <div class="card-body">
+          <h3 class="card-title">Edinburgh Castle</h3>
+          <p class="card-desc">Dominating the Old Town skyline from its ancient volcanic rock, Edinburgh Castle is the beating heart of Scottish history. Home to the Crown Jewels, the Stone of Destiny, and sweeping views across the city to the Firth of Forth. Walk the ramparts where kings and warriors once stood — a breathtaking reminder that Scotland's story is one of endurance and grandeur.</p>
+          <a class="card-link" href="https://www.edinburghcastle.scot/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Official Website
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="edi-bus.avif" alt="Edinburgh Hop-On Hop-Off Bus Tour">
+        <span class="card-badge">🗺 Great Overview</span>
+        <div class="card-body">
+          <h3 class="card-title">Hop-On Hop-Off Bus Tour</h3>
+          <p class="card-desc">The perfect way to get your bearings — hop on and off at Edinburgh's key landmarks as you please. From the Royal Mile to Holyrood Palace, Arthur's Seat to the New Town, the bus covers all the highlights with live commentary. Ideal for all ages and a great way to decide which spots deserve a deeper look on foot.</p>
+          <a class="card-link" href="https://www.hop-on-hop-off-tickets.com/edinburgh-bus-tours/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Tour Info
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="edi-camera.jpg" alt="Camera Obscura & World of Illusions">
+        <span class="card-badge">👧 All Ages</span>
+        <div class="card-body">
+          <h3 class="card-title">Camera Obscura & World of Illusions</h3>
+          <p class="card-desc">Five floors of mind-bending illusions and hands-on exhibits at the top of the Royal Mile. The historic Camera Obscura — a live, real-time projection of Edinburgh's streets — has been pulling in crowds since 1853. The rooftop views alone are worth the visit. Genuinely brilliant for kids and adults alike.</p>
+          <a class="card-link" href="https://www.camera-obscura.co.uk/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Visit Camera Obscura
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="edi-harry.avif" alt="Harry Potter Guided Walking Tour">
+        <span class="card-badge">⚡ Magical</span>
+        <div class="card-body">
+          <h3 class="card-title">Harry Potter Guided Walking Tour</h3>
+          <p class="card-desc">Edinburgh was the city that inspired J.K. Rowling as she wrote the series in its many coffee shops and dark wynds. Discover the Greyfriars Kirkyard that inspired Diagon Alley, the gravestone that gave Voldemort his name, and the school that became Hogwarts. A storytelling experience that brings the magic to life on the very streets where it was imagined.</p>
+          <a class="card-link" href="https://www.pottertour.co.uk/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Book the Tour
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="edi-yacht.webp" alt="Royal Yacht Britannia">
+        <span class="card-badge">👑 Royal History</span>
+        <div class="card-body">
+          <h3 class="card-title">Royal Yacht Britannia</h3>
+          <p class="card-desc">Berthed at Leith's Ocean Terminal, Britannia served the Royal Family for 44 years and 968 official voyages. Explore five decks of immaculately preserved state apartments, crew quarters and royal bedrooms — all exactly as they were. Audio guides bring the stories to life across every beautifully frozen space aboard.</p>
+          <a class="card-link" href="https://www.royalyachtbritannia.co.uk/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Visit Britannia
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="edi-tour.avif" alt="Edinburgh Kids Underground Tour">
+        <span class="card-badge">👧 Kids Adventure</span>
+        <div class="card-body">
+          <h3 class="card-title">Edinburgh Kids Underground Tour</h3>
+          <p class="card-desc">A multi-sensory small-group journey beneath Edinburgh's streets, designed for families. Explore the eerie underground closes and vaults hidden below South Bridge — spaces frozen since the 18th century. Costumed guides bring the city's darker history to life in a way that thrills without terrifying. An unforgettable exploration of Edinburgh's hidden world.</p>
+          <a class="card-link" href="https://www.getyourguide.com/edinburgh-l44/edinburgh-kids-multi-sensory-underground-small-group-tour-t93411/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Book on GetYourGuide
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="session-label">🍷 Edinburgh Evening Dining</p>
+    <div class="cards-grid">
+
+      <div class="card">
+        <img class="card-img" src="edi-witchery.jpg" alt="The Witchery by the Castle">
+        <span class="card-badge">🏆 Most Iconic</span>
+        <div class="card-body">
+          <h3 class="card-title">The Witchery by the Castle</h3>
+          <p class="card-desc">Perhaps the most theatrical restaurant in Scotland — set in a 16th-century merchant's house at the gates of Edinburgh Castle. Jewel-coloured antiques, carved oak, blazing candelabra and an atmosphere dripping with gothic intrigue. The food is exceptional Scottish produce: venison, lobster, whisky sauces. But it's the setting you'll never forget.</p>
+          <a class="card-link" href="https://www.thewitchery.com/dine/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Reserve a Table
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="edi-ivy.jpg" alt="The Ivy on the Square">
+        <span class="card-badge">🌟 Smart & Stylish</span>
+        <div class="card-body">
+          <h3 class="card-title">The Ivy on the Square</h3>
+          <p class="card-desc">The Ivy's Edinburgh outpost overlooking St Andrew Square — trademark British glamour, impeccable service and a crowd-pleasing menu from dressed crab to shaking beef. A reliable choice for a group dinner where everyone needs something different. Smart without being stuffy, and the cocktails are reliably excellent.</p>
+          <a class="card-link" href="https://ivycollection.com/restaurants-near-me/the-ivy-scotland/the-ivy-on-the-square-edinburgh/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Book The Ivy
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="edi-dome.avif" alt="Cocktails in the Dome">
+        <span class="card-badge">🎊 Most Dramatic</span>
+        <div class="card-body">
+          <h3 class="card-title">Cocktails in the Dome</h3>
+          <p class="card-desc">A former bank transformed into a breathtaking space beneath a stunning domed ceiling of leaded glass, ornate balconies and sweeping staircases. Whether for cocktails, afternoon tea or dinner, the grandeur of the setting is worth the visit on its own. Dress up, look up, and raise a glass in one of Scotland's most beautiful rooms.</p>
+          <a class="card-link" href="https://www.thedomeedinburgh.com/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Visit the Dome
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ MONDAY 27 JULY ═══ -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">Mon<br>27</div>
+      <div class="day-title-wrap">
+        <h2>Journey North</h2>
+        <p class="day-date">Monday · 27 July 2026</p>
+      </div>
+      <div class="day-rule"></div>
+    </div>
+
+    <p class="session-label">🌅 Morning — Into the Highlands</p>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span class="activity-icon">🚗</span>
+        <div>
+          <h4>Drive Edinburgh to Braemar via Dunkeld</h4>
+          <p>Leave Edinburgh and follow the A9 into Perthshire, watching the landscape transform from rolling farmland to ancient Caledonian forest. Wind through Dunkeld — a handsome cathedral town in a gorge of the River Tay — before climbing into the Grampian Mountains to Braemar. Around 2.5 hours of increasingly spectacular Highland scenery.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="session-label">🍽 Afternoon — Lunch at Dunkeld</p>
+    <div class="cards-grid">
+      <div class="card">
+        <img class="card-img" src="hotel-taybank-dunkeld.jpg" alt="The Taybank Hotel, Dunkeld">
+        <span class="card-badge">🎵 Local Favourite</span>
+        <div class="card-body">
+          <h3 class="card-title">The Taybank Hotel, Dunkeld</h3>
+          <p class="card-desc">A beloved institution perched right on the banks of the River Tay, a stone's throw from Dunkeld Cathedral's ancient grounds. The Taybank is famous for its vibrant folk music sessions and serves proper pub food alongside a well-stocked bar. Sit outside if the weather allows and watch the Tay rush past — a proper Highland stop to break the drive and fuel up for the adventure ahead.</p>
+          <a class="card-link" href="https://www.thetaybank.co.uk/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            The Taybank Hotel
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="session-label">🏔 Evening — Mar Lodge Arrival</p>
+    <div class="stay-card">
+      <img class="stay-img" src="https://nts-production.imgix.net/general/Main-Mar-Lodge-HAV-1018.jpg" alt="Mar Lodge Estate">
+      <div class="stay-body">
+        <p class="stay-type">🏡 National Trust for Scotland Estate · Braemar</p>
+        <h3 class="stay-title">Mar Lodge Estate — The Highland Fun Begins!</h3>
+        <p style="font-family:'Josefin Sans',sans-serif; font-size:11px; letter-spacing:1px; color:var(--text-mid); margin-bottom:14px;">
+          📍 <a href="https://www.nts.org.uk/visit/places/mar-lodge-estate" target="_blank" style="color:var(--highland-green); text-decoration:underline; text-underline-offset:2px;">Mar Lodge Estate, Braemar, Aberdeenshire AB35 5YJ</a>
+        </p>
+        <div class="stay-features">
+          <span class="feature-tag">🏔 Cairngorms Views</span>
+          <span class="feature-tag">🦌 Red Deer Estate</span>
+          <span class="feature-tag">🎻 Ballroom</span>
+          <span class="feature-tag">🥾 30,000 Acres</span>
+          <span class="feature-tag">👑 Victorian Lodge</span>
+        </div>
+        <p class="stay-desc">One of Scotland's most extraordinary properties — a Victorian shooting lodge set deep in the Cairngorms National Park, managed by the National Trust for Scotland. Mar Lodge comes with 30,000 acres of wilderness, four of the five highest peaks in Britain, and a grand ballroom hung with hundreds of stag antlers. Everyone arrives this evening for a grand dinner to kick off the Highland adventure in style.</p>
+        <a class="card-link" href="https://www.nts.org.uk/visit/places/mar-lodge-estate" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Mar Lodge on NTS
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TUESDAY 28 JULY ═══ -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">Tue<br>28</div>
+      <div class="day-title-wrap">
+        <h2>Into the Cairngorms</h2>
+        <p class="day-date">Tuesday · 28 July 2026</p>
+      </div>
+      <div class="day-rule"></div>
+    </div>
+
+    <p class="session-label">🌄 Morning — High Ground</p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-img-placeholder ph-green">🥾</div>
+        <span class="card-badge">🏔 Britain's Wildest</span>
+        <div class="card-body">
+          <h3 class="card-title">Hike & Walk in the Cairngorms</h3>
+          <p class="card-desc">Britain's largest national park and one of Europe's last great wildernesses — the Cairngorms around Braemar offer walking for every level. From gentle riverside paths along the Dee to the challenging ridgelines of the high plateau, the landscape is ancient, boulder-strewn and hauntingly beautiful. Keep an eye out for red squirrels, ospreys, red kites and the famous Cairngorms red deer. An early morning walk here, with the hills turning copper in the rising sun, is something you won't forget.</p>
+          <a class="card-link" href="https://www.cairngorms.co.uk/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Cairngorms Paths Guide
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="session-label">☀️ Afternoon — Fife Arms & Braemar</p>
+    <div class="cards-grid-2">
+
+      <div class="card">
+        <img class="card-img" src="hotel-fife.webp" alt="The Fife Arms, Braemar">
+        <span class="card-badge">⭐ World Class</span>
+        <div class="card-body">
+          <h3 class="card-title">Lunch at The Fife Arms, Braemar</h3>
+          <p class="card-desc">One of Scotland's most celebrated hotels — a Victorian coaching inn transformed by art dealers Hauser & Wirth into an extraordinary retreat filled with over 16,000 artworks. The Flying Stag bar and restaurant serve exceptional local food: Highland venison, fish from the Dee, Aberdeenshire beef — in surroundings that are equal parts dramatic and cosy. A proper Highland lunch worth dressing up for.</p>
+          <a class="card-link" href="https://thefifearms.com/eat-drink/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Fife Arms Restaurant
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-placeholder ph-stone">🏡</div>
+        <span class="card-badge">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Royal Village</span>
+        <div class="card-body">
+          <h3 class="card-title">A Wee Wander Around Braemar</h3>
+          <p class="card-desc">Braemar is the beating heart of Royal Deeside — a charming highland village at 340 metres, flanked by dramatic peaks and the River Dee. Stroll the main street, pop into the local shops, and take in the handsome Braemar Castle — a turreted stronghold that once served as a government garrison after the Jacobite uprising. Small, beautiful, and utterly, completely Scottish.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="session-label">🌆 Evening — Ceilidh at the Lodge</p>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span class="activity-icon">🎻</span>
+        <div>
+          <h4>Games and Ceilidh Dancing at Mar Lodge</h4>
+          <p>The perfect Highland evening — traditional Scottish country games in the grand ballroom, followed by ceilidh dancing to reel music. Strip the willow, the Gay Gordons, the Dashing White Sergeant — no experience required, just energy and a willingness to be spun round until you're dizzy. The antlered ballroom at Mar Lodge was built for exactly this kind of revelry.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ WEDNESDAY 29 JULY ═══ -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">Wed<br>29</div>
+      <div class="day-title-wrap">
+        <h2>Royal Deeside Day</h2>
+        <p class="day-date">Wednesday · 29 July 2026</p>
+      </div>
+      <div class="day-rule"></div>
+    </div>
+
+    <p class="session-label">🌅 Morning — Choose Your Adventure</p>
+    <div class="cards-grid-2">
+
+      <div class="card">
+        <img class="card-img" src="balmoral-golf-course.jpg" alt="Balmoral Golf Course">
+        <span class="card-badge">🏌️ Gentlemen's Sport</span>
+        <div class="card-body">
+          <h3 class="card-title">Men's Golf @ Balmoral Golf Club</h3>
+          <p class="card-desc">A round on one of Scotland's most beautifully situated golf courses — Balmoral Golf Club occupies a spectacular position in the Cairngorms National Park, with holes laid out through heather moorland and birch woodland against a backdrop of soaring Munros. Used by the Royal Family during their summer stay, this is golf in its most dramatic Highland setting. Proper spikes and a tartan pullover strongly encouraged.</p>
+          <a class="card-link" href="https://www.balmoralgolfclub.co.uk/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Balmoral Golf Club
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-placeholder ph-heather">🍦</div>
+        <span class="card-badge">👩 Ladies & Kids</span>
+        <div class="card-body">
+          <h3 class="card-title">Ballater — Ice Cream & a Wee Nosy</h3>
+          <p class="card-desc">While the golfers battle Balmoral's heather rough, a leisurely morning in the pretty Victorian village of Ballater is the perfect alternative. A Royal Warrant village nestled on the banks of the Dee, Ballater is full of excellent independent shops, galleries and — most importantly — exceptional ice cream. Wander, browse, grab a cone, and enjoy the magnificent mountain backdrop. These shops have been supplying the Royals since Queen Victoria's day.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="session-label">☀️ Afternoon — Balmoral & The Distillery</p>
+    <div class="cards-grid-2">
+
+      <div class="card">
+        <img class="card-img" src="bal-castle.jpg" alt="Balmoral Castle">
+        <span class="card-badge">👑 Royal Residence</span>
+        <div class="card-body">
+          <h3 class="card-title">Balmoral Castle</h3>
+          <p class="card-desc">The private Scottish home of the British Royal Family since 1852 — purchased by Prince Albert and rebuilt in the Scottish Baronial style. The castle grounds, ballroom and gardens are open to visitors, set in some of the most stunning Highland scenery imaginable. Walking trails wind through woodland and along the River Dee, with exhibitions on the castle's history and its royal residents through the generations.</p>
+          <a class="card-link" href="https://www.balmoralcastle.com/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Visit Balmoral
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="roy-loch.avif" alt="Royal Lochnagar Distillery">
+        <span class="card-badge">👑 Royal Warrant</span>
+        <div class="card-body">
+          <h3 class="card-title">Royal Lochnagar Distillery</h3>
+          <p class="card-desc">Just a short walk from Balmoral sits one of Scotland's smallest and most distinguished distilleries — holder of the Royal Warrant since Queen Victoria herself visited in 1848. The single malt is smooth, complex and deeply Highland: rich dried fruit, subtle spice and a long warming finish. The distillery tour takes you through traditional pot stills and the bonded warehouse, ending with a proper tutored tasting.</p>
+          <a class="card-link" href="https://www.malts.com/en/royal-lochnagar" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Royal Lochnagar
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="session-label">🌆 Evening — Whisky Tasting at the Lodge</p>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span class="activity-icon">🥃</span>
+        <div>
+          <h4>Whisky Tasting at Mar Lodge</h4>
+          <p>Back at Mar Lodge for a convivial evening whisky tasting — line up the bottles from Royal Lochnagar and any other Deeside drams acquired along the way. Compare a sherried Speysider with a peaty Islay expression, argue about which is better, and settle the debate by opening another. Highland hospitality at its finest.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ THURSDAY 30 JULY ═══ -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">Thu<br>30</div>
+      <div class="day-title-wrap">
+        <h2>South to Crathes</h2>
+        <p class="day-date">Thursday · 30 July 2026</p>
+      </div>
+      <div class="day-rule"></div>
+    </div>
+
+    <p class="session-label">🌅 Morning — Farewell Mar Lodge</p>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span class="activity-icon">🏔</span>
+        <div>
+          <h4>Leave Mar Lodge</h4>
+          <p>Pack up, take one last look at the Cairngorms from the Lodge's grand steps, and bid farewell to Braemar. The next stop is a little further south — but still deep in the heart of Royal Deeside, and just as special.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="session-label">☀️ Afternoon — Glen Tanar</p>
+    <div class="cards-grid-2">
+
+      <div class="card">
+        <div class="card-img-placeholder ph-green">🐴</div>
+        <span class="card-badge">🌲 Highland Classic</span>
+        <div class="card-body">
+          <h3 class="card-title">Horse Riding at Glen Tanar Estate</h3>
+          <p class="card-desc">Glen Tanar Estate offers guided horse riding through some of the most beautiful ancient Caledonian pinewood in Scotland — a rare habitat that once covered the entire Highlands. Wind through sun-dappled forest, across heathery moorland and along the meandering Water of Tanar on horseback. The equestrian centre caters for all abilities, from complete beginners to experienced riders.</p>
+          <a class="card-link" href="https://glentanarequestrian.co.uk/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Glen Tanar Equestrian
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-placeholder ph-loch">🌊</div>
+        <span class="card-badge">🥾 Or Walk Instead</span>
+        <div class="card-body">
+          <h3 class="card-title">Cambus O'May Walk + Cheese Shop</h3>
+          <p class="card-desc">An alternative afternoon: the Cambus O'May Circular is one of Deeside's loveliest gentle walks — crossing the famous Victorian suspension bridge over the River Dee and looping through ancient birch and Scots pine woodland with stunning hill views. Don't miss the excellent local cheese shop nearby for provisions to accompany this evening's supper.</p>
+          <a class="card-link" href="https://cairngorms.co.uk/paths/cambus-omay-circular" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Walk Route
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="session-label">🌆 Evening — The CowShed, Banchory</p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-img-placeholder ph-tartan">🐟</div>
+        <span class="card-badge">🍟 Local Institution</span>
+        <div class="card-body">
+          <h3 class="card-title">Fish & Chips at The CowShed</h3>
+          <p class="card-desc">A Banchory institution — The CowShed is a beloved local restaurant in a beautifully converted farm steading, serving first-rate fish and chips alongside an impressive menu of steaks, burgers and seasonal specials. The fish is locally sourced and the chips are properly excellent. After days of Highland hiking and whisky, there is nothing more satisfying. The Deeside equivalent of a standing ovation.</p>
+          <a class="card-link" href="https://www.cowshedrestaurantbanchory.co.uk/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            The CowShed Restaurant
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FRIDAY 31 JULY ═══ -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">Fri<br>31</div>
+      <div class="day-title-wrap">
+        <h2>Crathes & the Clan</h2>
+        <p class="day-date">Friday · 31 July 2026</p>
+      </div>
+      <div class="day-rule"></div>
+    </div>
+
+    <p class="session-label">🏰 Morning — Crathes Castle</p>
+    <div class="cards-grid">
+      <div class="card">
+        <img class="card-img" src="crathes-castle.jpg" alt="Crathes Castle">
+        <span class="card-badge">🏰 NTS Gem</span>
+        <div class="card-body">
+          <h3 class="card-title">Crathes Castle</h3>
+          <p class="card-desc">A magnificent 16th-century tower house set among ancient yew hedges and walled gardens on the banks of the River Dee — one of the finest examples of a Scottish laird's castle in the country. The painted ceilings inside are extraordinarily well preserved, representing some of the finest Renaissance decoration in Scotland. The celebrated gardens, including the famous Yew Topiary, are among the most beautiful in the NTS portfolio.</p>
+          <a class="card-link" href="https://www.nts.org.uk/visit/places/crathes-castle-garden-estate" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Crathes Castle — NTS
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="session-label">☀️ Afternoon — Milton & Park Shop</p>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span class="activity-icon">🛍️</span>
+        <div>
+          <h4>Milton & Park Shop</h4>
+          <p>A browse through the excellent Milton of Crathes shops — a charming collection of independent outlets on the Crathes estate, including a garden centre, gift shop and café. Stock up on Scottish gifts, local produce and provisions for the evening. The farm shop is particularly strong for local charcuterie, cheeses and Deeside produce.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="session-label">🔥 Evening — Clan Stien BBQ</p>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span class="activity-icon">🍖</span>
+        <div>
+          <h4>BBQ at Glas Barr — Home of the Clan Stien</h4>
+          <p>The Highland adventure comes home — a proper outdoor BBQ at Glas Barr, ancestral home of the clan Stien. Fire up the grill, open something excellent from the cellar, and celebrate being in Scotland together. The kind of evening that only gets better as the Highland dusk settles and the stars come out over Deeside.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SATURDAY 1 AUGUST ═══ -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">Sat<br>1 Aug</div>
+      <div class="day-title-wrap">
+        <h2>Aboyne Highland Games</h2>
+        <p class="day-date">Saturday · 1 August 2026</p>
+      </div>
+      <div class="day-rule"></div>
+    </div>
+
+    <p class="session-label">🏅 All Day — The Games</p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-img-placeholder ph-tartan">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+        <span class="card-badge">🎺 Since 1867</span>
+        <div class="card-body">
+          <h3 class="card-title">Aboyne Highland Games</h3>
+          <p class="card-desc">One of Scotland's finest and most authentically Highland gatherings — the Aboyne Highland Games have been held on the village green since 1867 and are renowned for their spectacular setting and traditional atmosphere. Watch the heavy events: tossing the caber, the hammer throw, the stone put — contests of raw Highland strength unchanged for centuries. Pipe bands parade, Highland dancers compete, and the whole community turns out in their finest tartan. An utterly authentic experience that will stay with you for years.</p>
+          <a class="card-link" href="https://aboynegames.com/visitor-information/full-programme" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Full Programme
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="session-label">🌆 Evening — Food Trucks</p>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span class="activity-icon">🚚</span>
+        <div>
+          <h4>Food Trucks at the Games</h4>
+          <p>Round off the Games with a tour of the food trucks — venison burgers, Scotch pies, fresh-cut chips and tablet. Take your pick, find a spot on the grass, and toast another magnificent day in the glens.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SUNDAY 2 AUGUST ═══ -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">Sun<br>2 Aug</div>
+      <div class="day-title-wrap">
+        <h2>Au Revoir, Scotland</h2>
+        <p class="day-date">Sunday · 2 August 2026</p>
+      </div>
+      <div class="day-rule"></div>
+    </div>
+
+    <p class="session-label">✈️ Homeward Bound</p>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span class="activity-icon">🚗</span>
+        <div>
+          <h4>Drive Back to Edinburgh</h4>
+          <p>The Kays make the journey south — following the same spectacular Deeside roads back towards the capital, the mountains slowly retreating in the rear-view mirror. Stop for a coffee in Dunkeld if the mood takes you, and savour the final miles of Scottish countryside before the city horizon appears.</p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-icon">✈️</span>
+        <div>
+          <h4>Fly Edinburgh → Paris CDG</h4>
+          <p>The flight back to Paris — pockets full of tablet and shortbread, heads full of memories. Edinburgh Airport is efficient and well-connected; allow plenty of time for a final browse of the shops and one last dram at the departure lounge bar.</p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-icon">🥖</span>
+        <div>
+          <h4>Baguette ;-)</h4>
+          <p>Back to Paris, back to baguettes — and the sweet realisation that Scotland was, as it always is, absolutely worth it. See you back in Paris!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="tartan-stripe"></div>
+  <p style="margin-top:24px;">🏴󠁧󠁢󠁳󠁣󠁴󠁿 <span>Scotland Highland Adventure</span> · 24 July – 2 August 2026 · Edinburgh · Braemar · Royal Deeside 🦌</p>
+</footer>
+
+</body>
+</html>
